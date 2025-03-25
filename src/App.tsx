@@ -1,13 +1,21 @@
-import { Button } from "@mui/joy"
+import { BrowserRouter, Route, Routes } from "react-router"
+import { Dashboard } from "./pages/dashboard/Dashboard"
+import { PageNotFound } from "./pages/PageNotFound"
 
-function App() {
-  const name = "Alfredo"
+export function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<Dashboard />}
+        />
 
-  const handleGreet = () => {
-    console.log("Working")
-  }
-
-  return <Button onClick={handleGreet}>Hello! {name}</Button>
+        <Route
+          path="*"
+          element={<PageNotFound />}
+        />
+      </Routes>
+    </BrowserRouter>
+  )
 }
-
-export default App
