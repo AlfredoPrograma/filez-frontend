@@ -1,3 +1,5 @@
+import { Typography } from "@mui/joy"
+
 export function Dashboard() {
-  return <h1>Dashboard</h1>
+  return <Typography level="h1">Dashboard</Typography>
 }
