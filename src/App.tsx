@@ -4,6 +4,7 @@ import { PageNotFound } from "@/pages/PageNotFound"
 import { Providers } from "./Providers"
 import { AuthLayout } from "./layouts/AuthLayout"
 import { Login } from "./pages/auth/Login"
+import { Register } from "./pages/auth/Register"
 
 export function App() {
   return (
@@ -22,6 +23,10 @@ export function App() {
             <Route
               index
               element={<Login />}
+            />
+            <Route
+              path="register"
+              element={<Register />}
             />
           </Route>
 
