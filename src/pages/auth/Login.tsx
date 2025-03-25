@@ -1,5 +1,12 @@
 import { Link } from "@/components/Link"
-import { Mail, Google, Microsoft } from "@mui/icons-material"
+import {
+  Mail,
+  Google,
+  Microsoft,
+  Key,
+  Visibility,
+  VisibilityOff
+} from "@mui/icons-material"
 import {
   Button,
   Card,
@@ -7,12 +14,18 @@ import {
   Divider,
   FormControl,
   FormLabel,
+  IconButton,
   Input,
   Stack,
   Typography
 } from "@mui/joy"
+import { useState } from "react"
 
 export function Login() {
+  const [showPassword, setShowPassword] = useState(false)
+
+  const toggleShowPassword = () => setShowPassword((prev) => !prev)
+
   return (
     <Card
       sx={(theme) => ({ padding: theme.spacing(4), width: 400 })}
@@ -43,21 +56,37 @@ export function Login() {
         </Stack>
 
         <Stack
-          marginBottom={3}
+          marginBottom={1}
           direction="column"
           spacing={1}
         >
           <FormControl>
             <FormLabel>E-mail</FormLabel>
             <Input
-              placeholder="johndoe@example.com"
-              endDecorator={<Mail />}
+              type="email"
+              startDecorator={<Mail />}
             />
           </FormControl>
-          <Button>Send magic link</Button>
+
+          <FormControl>
+            <FormLabel>Password</FormLabel>
+            <Input
+              type={showPassword ? "text" : "password"}
+              startDecorator={<Key />}
+              endDecorator={
+                <IconButton onClick={toggleShowPassword}>
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              }
+            />
+          </FormControl>
         </Stack>
 
-        <Divider>Or sign in using:</Divider>
+        <Stack marginBottom={3}>
+          <Button>Sign in</Button>
+        </Stack>
+
+        <Divider>Or use third party provider</Divider>
 
         <Stack
           marginTop={1}
