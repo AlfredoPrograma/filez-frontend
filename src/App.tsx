@@ -1,6 +1,13 @@
+import { Button } from "@mui/joy"
+
 function App() {
   const name = "Alfredo"
-  return <h1>{name}</h1>
+
+  const handleGreet = () => {
+    console.log("Working")
+  }
+
+  return <Button onClick={handleGreet}>Hello! {name}</Button>
 }
 
 export default App
