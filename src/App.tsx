@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router"
-import { Dashboard } from "@/pages/dashboard/Dashboard"
 import { PageNotFound } from "@/pages/PageNotFound"
 import { Providers } from "./Providers"
 import { AuthLayout } from "./layouts/AuthLayout"
 import { Login } from "./pages/auth/Login"
 import { Register } from "./pages/auth/Register"
+import { DashboardLayout } from "./layouts/DashboardLayout"
 
 export function App() {
   return (
@@ -13,8 +13,17 @@ export function App() {
         <Routes>
           <Route
             path="/"
-            element={<Dashboard />}
-          />
+            element={<DashboardLayout />}
+          >
+            <Route
+              index
+              element={
+                <div>
+                  <h1>Hello</h1>
+                </div>
+              }
+            />
+          </Route>
 
           <Route
             path="/auth"
